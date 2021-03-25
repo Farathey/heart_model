@@ -1,7 +1,7 @@
 # Heart model
 ### Simple heart model to simulate blood flow and EKG signal created in python
 
-Model consists two classes - chamber and heart itself.
+Model consists of two classes - chamber and heart itself.
 The heart has two main methods:
 - contraction - serving the role of blood flow control and appending electrocardiogram signal values
 - blood_flow - handling the simulation of blood flowin between chambers and cirulation systems
