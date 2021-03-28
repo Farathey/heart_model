@@ -8,21 +8,28 @@ The heart has two main methods:
 
 Usage example in main:
     
-    # Here we create heart object
-    h = heart()
+        # Here we create name for plot file name
+        now = datetime.now()
+        fn_string = now.strftime("%d%m%Y%H%M%S")
 
-    # Here we initialize where our blood starts - in both atriums
-    h.right_atrium.full = True
-    h.left_atrium.full = True
+        # Here we create heart object
+        h = heart()
 
-    # Here we ask the user for the number of beats
-    num_of_beats = int(input('Insert number of beats (int): '))
+        # Here we initialize where our blood starts - in both atriums
+        h.right_atrium.full = True
+        h.left_atrium.full = True
 
-    # We simulate given number of beats
-    for i in range(num_of_beats):
-            h.heart_beat()
+        # Here we ask the user for the number of beats
+        num_of_beats = int(input('Insert number of beats (int): '))
 
-    # And create electrocardiogram with signal created during beating simulation
-    plt.plot([i for i in range(len(h.ekg))], h.ekg)       
-    plt.grid()
-    plt.show()
+        # We simulate given number of beats
+        for i in range(num_of_beats):
+                h.heart_beat()
+
+        # And create electrocardiogram with signal created during beating simulation
+        plt.plot([i for i in range(len(h.ekg))], h.ekg)       
+        plt.grid()
+        plt.title(f'{num_of_beats} beats')
+        plt.savefig(f'.\\plots\\{fn_string}.png')
+
+Plot file names and log file names are the current date and time

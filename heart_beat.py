@@ -1,9 +1,11 @@
 import logging
 from datetime import datetime
 
+# Here we create name for our log file 
 now = datetime.now()
 fn_string = now.strftime("%d%m%Y%H%M%S")
 
+# Here we create log file
 logging.basicConfig(filename=f'.\\logs\\{fn_string}.log', level=logging.INFO)
 
 class chamber:

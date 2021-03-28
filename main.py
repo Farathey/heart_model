@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from heart_beat import heart
 from datetime import datetime
 
+# Here we create name for plot file name
 now = datetime.now()
 fn_string = now.strftime("%d%m%Y%H%M%S")
 
