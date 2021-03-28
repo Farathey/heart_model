@@ -1,5 +1,9 @@
 import matplotlib.pyplot as plt
-from classes import heart
+from heart_beat import heart
+from datetime import datetime
+
+now = datetime.now()
+fn_string = now.strftime("%d%m%Y%H%M%S")
 
 # Here we create heart object
 h = heart()
@@ -18,4 +22,5 @@ for i in range(num_of_beats):
 # And create electrocardiogram with signal created during beating simulation
 plt.plot([i for i in range(len(h.ekg))], h.ekg)       
 plt.grid()
-plt.show()
+plt.title(f'{num_of_beats} beats')
+plt.savefig(f'.\\plots\\{fn_string}.png')

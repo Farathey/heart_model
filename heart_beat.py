@@ -1,3 +1,11 @@
+import logging
+from datetime import datetime
+
+now = datetime.now()
+fn_string = now.strftime("%d%m%Y%H%M%S")
+
+logging.basicConfig(filename=f'.\\logs\\{fn_string}.log', level=logging.INFO)
+
 class chamber:
     '''
     Chamber class containing the information about whether chamber is full, it's key and what is the next chamber
@@ -80,7 +88,7 @@ class heart:
             # Here we pass blood from atriums to verniciles by simulating atrial contraction
             self.blood_flow(self.right_atrium)
             self.blood_flow(self.left_atrium)
-            print('atriums contraction')
+            logging.info('atriums contraction')
             # Here we append values of EKG signal
             for i in range(3):
                 self.ekg.append(0.5)
@@ -92,7 +100,7 @@ class heart:
             self.ekg.append(-0.3)
             self.blood_flow(self.right_ventricle)
             self.blood_flow(self.left_ventricle)
-            print('verniciles contraction')
+            logging.info('verniciles contraction')
             self.ekg.append(3)
             self.ekg.append(-0.3)
             for i in range(5):
@@ -109,7 +117,7 @@ class heart:
         chamber : chamber
             chamber object
         '''
-        print(f'blood in {chamber}')
+        logging.info(f'blood in {chamber}')
         if chamber.full == True:
             # Here we handle flow from atrium to vernicile
             if chamber.next.key != 3 or chamber.next.key != 1:
